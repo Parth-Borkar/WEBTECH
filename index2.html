@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark Theme Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background-color: #1e1e2e;
+            display: flex;
+            color: #e5e7eb;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background-color: #2a2a40;
+            padding-top: 30px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            color: #c7d2fe;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            margin: 8px 15px;
+            text-decoration: none;
+            color: #e5e7eb;
+            background-color: #3b3b5c;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #5b5fc7;
+        }
+
+        /* Main content (static) */
+        .content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        /* Bottom-right iframe */
+        .mini-frame-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            border: 2px solid #5b5fc7;
+            background-color: #2a2a40;
+        }
+
+        .mini-frame-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="subjects.html" target="miniFrame">Subjects</a>
+        <a href="assignments.html" target="miniFrame">Assignments</a>
+        <a href="courses.html" target="miniFrame">Online Courses</a>
+        <a href="contacts.html" target="_blank">Contacts</a>
+    </div>
+
+    <!-- Static Main Content -->
+    <div class="content">
+        <h1>Welcome</h1>
+        <p>
+            Click the menu items to open content in the bottom-right panel.
+            This area remains unchanged.
+        </p>
+    </div>
+
+    <!-- Bottom Right Iframe -->
+    <div class="mini-frame-container">
+        <iframe name="miniFrame" src="subjects.html"></iframe>
+    </div>
+
+</body>
+</html>
