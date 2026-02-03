@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Silver Surfer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background: #000;
+      border: 3px solid silver;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Canvas Animation: Silver Surfer in a Box</h2>
+
+<canvas id="canvas" width="500" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  // Box boundaries
+  const padding = 20;
+
+  // Surfer state
+  let surfer = {
+    x: 100,
+    y: 150,
+    vx: 2.5,
+    vy: 1.8
+  };
+
+  function drawBox() {
+    ctx.strokeStyle = "silver";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(
+      padding,
+      padding,
+      canvas.width - padding * 2,
+      canvas.height - padding * 2
+    );
+  }
+
+  function drawSilverSurfer(x, y) {
+    // Metallic gradient
+    const gradient = ctx.createLinearGradient(x - 20, y, x + 20, y);
+    gradient.addColorStop(0, "#aaa");
+    gradient.addColorStop(0.5, "#f5f5f5");
+    gradient.addColorStop(1, "#888");
+
+    ctx.fillStyle = gradient;
+
+    // Board
+    ctx.beginPath();
+    ctx.ellipse(x, y + 12, 28, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Body
+    ctx.beginPath();
+    ctx.ellipse(x, y - 5, 6, 14, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Head
+    ctx.beginPath();
+    ctx.arc(x, y - 25, 6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function update() {
+    surfer.x += surfer.vx;
+    surfer.y += surfer.vy;
+
+    // Bounce inside the box
+    if (surfer.x < padding + 30 || surfer.x > canvas.width - padding - 30) {
+      surfer.vx *= -1;
+    }
+    if (surfer.y < padding + 30 || surfer.y > canvas.height - padding - 30) {
+      surfer.vy *= -1;
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawBox();
+    drawSilverSurfer(surfer.x, surfer.y);
+    update();
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>

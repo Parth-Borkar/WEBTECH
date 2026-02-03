@@ -1,0 +1,179 @@
+/* =====================
+   Global Styles
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #0f172a;
+    color: #e5e7eb;
+    overflow-x: hidden;
+}
+
+/* =====================
+   Background
+===================== */
+.bg {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, #6366f1, #22d3ee);
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* =====================
+   Layout
+===================== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================
+   Glass Cards
+===================== */
+.glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    border-radius: 18px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* =====================
+   Info Section
+===================== */
+.info h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.info p {
+    font-size: 0.95rem;
+    color: #cbd5f5;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.highlights {
+    display: flex;
+    gap: 2rem;
+}
+
+.highlights div strong {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.highlights div span {
+    font-size: 0.85rem;
+    color: #c7d2fe;
+}
+
+/* =====================
+   Form Header
+===================== */
+.form h2 {
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #c7d2fe;
+}
+
+/* =====================
+   Sections
+===================== */
+.section {
+    margin-top: 2rem;
+}
+
+.section h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #e0e7ff;
+}
+
+/* =====================
+   Grid
+===================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================
+   Fieldsets
+===================== */
+.glass-fieldset {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 0.5rem 0.75rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.glass-fieldset legend {
+    font-size: 0.75rem;
+    padding: 0 6px;
+    color: #c7d2fe;
+}
+
+/* =====================
+   Inputs
+===================== */
+input,
+textarea,
+select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+}
+
+textarea {
+    resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* =====================
+   Select
+===================== */
+.select-field {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.select-field select {
+    padding: 0.7rem;
+    border-radius:
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvas and SVG Example</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    canvas,
+    svg {
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML Canvas & SVG Demo</h1>
+
+  <div class="container">
+
+    <!-- ================= CANVAS ================= -->
+    <div>
+      <h2>Canvas Example</h2>
+      <canvas id="myCanvas" width="300" height="200"></canvas>
+    </div>
+
+    <!-- ================= SVG ================= -->
+    <div>
+      <h2>SVG Example</h2>
+      <svg width="300" height="200">
+
+        <!-- Triangle -->
+        <polygon points="60,20 10,80 110,80" fill="skyblue" />
+
+        <!-- Circle -->
+        <circle cx="200" cy="50" r="30" fill="orange" />
+
+        <!-- Line -->
+        <line x1="20" y1="150" x2="280" y2="150" stroke="black" stroke-width="3" />
+
+        <!-- Text -->
+        <text x="80" y="120" font-size="18" fill="green">
+          Hello SVG
+        </text>
+      </svg>
+    </div>
+
+  </div>
+
+  <script>
+    // ================= CANVAS DRAWING =================
+
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Draw Triangle
+    ctx.beginPath();
+    ctx.moveTo(70, 20);   // Top
+    ctx.lineTo(20, 80);   // Bottom left
+    ctx.lineTo(120, 80);  // Bottom right
+    ctx.closePath();
+    ctx.fillStyle = "#4CAF50";
+    ctx.fill();
+
+    // Draw Circle
+    ctx.beginPath();
+    ctx.arc(200, 50, 30, 0, Math.PI * 2);
+    ctx.fillStyle = "#FF5722";
+    ctx.fill();
+
+    // Draw Line
+    ctx.beginPath();
+    ctx.moveTo(20, 150);
+    ctx.lineTo(280, 150);
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Draw Text
+    ctx.font = "18px Arial";
+    ctx.fillStyle = "#2196F3";
+    ctx.fillText("Hello Canvas", 80, 120);
+  </script>
+
+</body>
+</html>

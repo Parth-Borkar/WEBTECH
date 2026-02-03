@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>xiaomi Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f0f8ff, #e0f7fa);
+    }
+
+    header {
+      background: linear-gradient(to right, #000000, #434343);
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+      font-size: 2em;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 14px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      background: #ffcc00;
+      color: #000;
+      border-radius: 8px;
+    }
+
+    .content {
+      display: none;
+      padding: 30px 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .content img {
+      width: 200px;
+      height: auto;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .content img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    /* Carousel */
+    .carousel-container {
+      position: relative;
+      max-width: 90%;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        padding: 10px 15px;
+      }
+
+      .carousel-slide img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    xiaomi Store
+  </header>
+
+  <nav>
+    <a href="#home" class="active">Home</a>
+    <a href="#smartphones">Smartphones</a>
+    <a href="#laptops">Laptops</a>
+    <a href="#accessories">Accessories</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div id="home" class="content" style="display:block;">
+    <h2>Welcome to xiaomi Store!</h2>
+    <p>Discover innovation in motion</p>
+
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carouselSlide">
+        <img src="x1.png" alt="Banner 1">
+        <img src="x2.png" alt="Banner 2">
+        <img src="x3.png" alt="Banner 3">
+        <img src="x4.png" alt="Banner 4">
+      </div>
+    </div>
+  </div>
+
+  <div id="smartphones" class="content">
+    <h2>Smartphones</h2>
+    <p>Explore the latest xiaomi smartphones:</p>
+    <img src="x5.png" alt="Phone 1">
+    <img src="x6.png" alt="Phone 2">
+    <img src="x7.png" alt="Phone 3">
+  </div>
+
+  <div id="laptops" class="content">
+    <h2>Laptops</h2>
+    <p>Powerful laptops built for creators and gamers:</p>
+    <img src="x8.png" alt="Laptop 1">
+    <img src="x9.png" alt="Laptop 2">
+    <img src="x10.png" alt="Laptop 3">
+  </div>
+
+  <div id="accessories" class="content">
+    <h2>Accessories</h2>
+    <p>Accessories that enhance your tech life:</p>
+    <img src="x11.png" alt="Accessory 1">
+    <img src="x12.png" alt="Accessory 2">
+    <img src="x13.png" alt="Accessory 3">
+  </div>
+
+  <div id="contact" class="content">
+    <h2>Contact Us</h2>
+    <p>Email: 24070006@ycce.in | Toll-Free: 8380042374</p>
+  </div>
+
+  <footer>
+    &copy; 2025 xiaomi Store. All rights reserved.
+  </footer>
+
+  <script>
+    // Tab Navigation
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelectorAll('nav a').forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+
+        document.querySelectorAll('.content').forEach(section => section.style.display = 'none');
+        document.querySelector(this.getAttribute('href')).style.display = 'block';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Carousel Auto Slide
+    let carouselIndex = 0;
+    const slide = document.getElementById('carouselSlide');
+    const totalSlides = slide.children.length;
+
+    function showNextSlide() {
+      carouselIndex = (carouselIndex + 1) % totalSlides;
+      slide.style.transform = `translateX(-${carouselIndex * 100}%)`;
+    }
+
+
+    setInterval(showNextSlide, 3000);
+  </script>
+
+</body>
+</html>

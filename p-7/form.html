@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Elite Student Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <div class="container">
+        <!-- Info Section -->
+        <div class="glass info">
+            <h1>Student Portal</h1>
+            <p>
+                A modern, distraction-free registration experience inspired by
+                clarity, structure, and calm design.
+            </p>
+
+            <div class="highlights">
+                <div>
+                    <strong>10k+</strong>
+                    <span>Students</span>
+                </div>
+                <div>
+                    <strong>120+</strong>
+                    <span>Courses</span>
+                </div>
+                <div>
+                    <strong>35+</strong>
+                    <span>Clubs</span>
+                </div>
+            </div>
+
+            <div class="love">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="glass form">
+            <h2>Create Account</h2>
+            <span class="subtitle">Student Registration</span>
+
+            <form>
+                <!-- Personal Details -->
+                <div class="section">
+                    <h4>Personal Details</h4>
+
+                    <div class="grid-2">
+                        <fieldset class="glass-fieldset">
+                            <legend>First Name</legend>
+                            <input type="text" placeholder="First Name" required />
+                        </fieldset>
+
+                        <fieldset class="glass-fieldset">
+                            <legend>Last Name</legend>
+                            <input type="text" placeholder="Last Name" required />
+                        </fieldset>
+                    </div>
+
+                    <fieldset class="glass-fieldset">
+                        <legend>Date of Birth</legend>
+                        <input type="date" />
+                    </fieldset>
+
+                    <div class="radio-group">
+                        <span>Gender</span>
+
+                        <label>
+                            <input type="radio" name="gender" checked />
+                            <span></span> Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" />
+                            <span></span> Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" />
+                            <span></span> Other
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Account Information -->
+                <div class="section">
+                    <h4>Account Information</h4>
+
+                    <fieldset class="glass-fieldset">
+                        <legend>Enrollment Number</legend>
+                        <input type="text" placeholder="24070087" required />
+                    </fieldset>
+
+                    <fieldset class="glass-fieldset">
+                        <legend>Institutional Email</legend>
+                        <input type="email" placeholder="123580@ycce.in" required />
+                    </fieldset>
+
+                    <fieldset class="glass-fieldset">
+                        <legend>Mobile Number</legend>
+                        <input
+                            type="text"
+                            id="mobile"
+                            placeholder="9876543210"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            required
+                        />
+                    </fieldset>
+
+                    <div class="grid-2">
+                        <fieldset class="glass-fieldset">
+                            <legend>Password</legend>
+                            <input
+                                type="password"
+                                placeholder="Enter password"
+                                required
+                            />
+                        </fieldset>
+
+                        <fieldset class="glass-fieldset">
+                            <legend>Confirm Password</legend>
+                            <input
+                                type="password"
+                                placeholder="Confirm password"
+                                required
+                            />
+                        </fieldset>
+                    </div>
+                </div>
+
+                <!-- Academic Details -->
+                <div class="section">
+                    <h4>Academic Details</h4>
+
+                    <div class="select-field">
+                        <select required>
+                            <option value="" disabled selected hidden></option>
+                            <option>Computer Science</option>
+                            <option>Engineering</option>
+                            <option>Management</option>
+                            <option>Design</option>
+                        </select>
+                        <legend>Department</legend>
+                    </div>
+
+                    <div class="select-field">
+                        <select required>
+                            <option value="" disabled selected hidden></option>
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                            <option>Final Year</option>
+                        </select>
+                        <legend>Year of Study</legend>
+                    </div>
+                </div>
+
+                <!-- About You -->
+                <div class="section">
+                    <h4>About You</h4>
+
+                    <fieldset class="glass-fieldset">
+                        <legend>Short Bio</legend>
+                        <textarea
+                            rows="3"
+                            placeholder="Tell us about yourself"
+                        ></textarea>
+                    </fieldset>
+
+                    <fieldset class="glass-fieldset">
+                        <legend>Profile Picture</legend>
+                        <input type="file" />
+                    </fieldset>
+                </div>
+
+                <button class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document
+            .querySelector("form")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const firstName = document
+                    .querySelector('input[placeholder="First Name"]')
+                    .value.trim();
+                const lastName = document
+                    .querySelector('input[placeholder="Last Name"]')
+                    .value.trim();
+                const password = document.querySelector(
+                    'input[type="password"]'
+                ).value;
+                const email = document
+                    .querySelector('input[type="email"]')
+                    .value.trim();
+                const mobile = document.getElementById("mobile").value.trim();
+                const address = document
+                    .querySelector("textarea")
+                    .value.trim();
+
+                const nameRegex = /^[A-Za-z]{6,}$/;
+                const emailRegex =
+                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const mobileRegex = /^[0-9]{10}$/;
+
+                if (!nameRegex.test(firstName + lastName)) {
+                    alert(
+                        "Name must contain only alphabets and at least 6 characters."
+                    );
+                    return;
+                }
+
+                if (password.length < 6) {
+                    alert("Password must be at least 6 characters long.");
+                    return;
+                }
+
+                if (!emailRegex.test(email)) {
+                    alert("Enter a valid email address (name@domain.com).");
+                    return;
+                }
+
+                if (!mobileRegex.test(mobile)) {
+                    alert(
+                        "Mobile number must contain exactly 10 digits."
+                    );
+                    return;
+                }
+
+                if (address === "") {
+                    alert("Address field should not be empty.");
+                    return;
+                }
+
+                alert("Form submitted successfully.");
+                this.submit();
+            });
+    </script>
+</body>
+</html>
